@@ -1,8 +1,10 @@
+import { State } from './state';
 import { Control } from './control';
 import { GameObject } from './game-object';
 
 import SpaceshipImg from '../resources/image/spaceship-01.png';
 import { Vector2D } from './vector-2d';
+import { Projectile } from './projectile';
 
 export class Player extends GameObject {
   public speed!: Vector2D;
@@ -10,15 +12,27 @@ export class Player extends GameObject {
   public height: number = 50;
   public img = new Image();
 
-  constructor() {
+  private static instance: Player;
+
+  private constructor() {
     super();
     this.position = new Vector2D({
-      x: (this.canvas.width - 50) / 2,
-      y: this.canvas.height - 50,
+      x: (this.canvas.width - this.width) / 2,
+      y: this.canvas.height - this.height,
     });
+
+    console.log(this.position)
 
     this.speed = new Vector2D({ x: 7, y: 0 });
     this.img.src = SpaceshipImg;
+  }
+
+  public static getInstance(): Player {
+    if (!Player.instance) {
+      Player.instance = new Player();
+    }
+
+    return Player.instance;
   }
 
   public move(): void {
@@ -41,6 +55,7 @@ export class Player extends GameObject {
   public collide(): void {
     throw new Error('Method not implemented.');
   }
+
   public draw(): void {
     this.ctx.drawImage(
       this.img,
@@ -50,7 +65,13 @@ export class Player extends GameObject {
       this.height,
     );
   }
+
   public shoot(): void {
-    throw new Error('Method not implemented.');
+    const control = Control.getInstance();
+    const state = State.getInstance();
+
+    if (control.shoot) {
+      state.gameObjects.push(new Projectile());
+    }
   }
 }

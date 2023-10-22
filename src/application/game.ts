@@ -1,23 +1,25 @@
-import type { GameObject } from './../domain/game-object';
-import { Player } from './../domain/player';
+import { State } from './../domain/state';
 import { CanvasUtils } from './../utils/canvas.utils';
 
 export class Game {
-  public gameObjects: GameObject[] = [];
+  public state: State = State.getInstance();
 
-  constructor() {
-    this.gameObjects.push(new Player());
-  }
+  constructor() {}
 
   public run(): void {
     console.log('running...');
 
     CanvasUtils.clearCanvas();
 
-    this.gameObjects.forEach((obj) => {
+    this.state.gameObjects.forEach((obj) => {
       obj.move();
+      obj.shoot();
       obj.draw();
     });
+
+    this.state.gameObjects = this.state.gameObjects.filter(
+      (obj) => obj.position.y > 0,
+    );
 
     requestAnimationFrame(() => this.run());
   }
