@@ -24,7 +24,6 @@ export class Control {
 
   private initKeydownListener(): void {
     document.addEventListener('keydown', (e: KeyboardEvent) => {
-      console.log(e.key);
       if (e.key == 'Right' || e.key == 'ArrowRight') {
         this.right = true;
       } else if (e.key == 'Left' || e.key == 'ArrowLeft') {

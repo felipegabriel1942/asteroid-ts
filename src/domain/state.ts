@@ -1,3 +1,4 @@
+import { Asteroid } from './asteroid';
 import type { GameObject } from './game-object';
 import { Player } from './player';
 
@@ -7,7 +8,7 @@ export class State {
   private static instance: State;
 
   private constructor() {
-    this.gameObjects.push(Player.getInstance());
+    this.gameObjects.push(Player.getInstance(), new Asteroid());
   }
 
   public static getInstance(): State {
