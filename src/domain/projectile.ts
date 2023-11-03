@@ -26,7 +26,7 @@ export class Projectile extends GameObject {
 
     this.speed = new Vector2D({
       x: 0,
-      y: -2,
+      y: -5,
     });
 
     this.img.src = ProjectileImg;

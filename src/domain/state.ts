@@ -1,5 +1,5 @@
-import { Asteroid } from './asteroid';
 import type { GameObject } from './game-object';
+
 import { Player } from './player';
 
 export class State {
@@ -8,7 +8,7 @@ export class State {
   private static instance: State;
 
   private constructor() {
-    this.gameObjects.push(Player.getInstance(), new Asteroid());
+    this.gameObjects.push(Player.getInstance());
   }
 
   public static getInstance(): State {

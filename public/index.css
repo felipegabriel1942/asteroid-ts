@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+canvas {
+  background: #794983;
+  display: block;
+}
+
+#start-btn {
+  bottom: 100px;
+  left: 50px;
+  position: absolute;
+}
+
+#game-score {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: white;
+}
+
+#game-title {
+  bottom: 400px;
+  left: 40px;
+  position: absolute;
+  color: white;
+  font-size: 50px;
+}
+
+button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+}
+
+button:hover {
+  background-color: rgb(201, 198, 198);
+}

@@ -18,7 +18,7 @@ export class Asteroid extends GameObject {
 
     this.speed = new Vector2D({
       x: 0,
-      y: 1,
+      y: 2,
     });
 
     this.img.src = AsteroidImg;

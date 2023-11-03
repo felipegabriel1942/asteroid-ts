@@ -26,7 +26,7 @@ export class Player extends GameObject {
       y: CanvasUtils.canvasHeight - this.height,
     });
 
-    this.speed = new Vector2D({ x: 2, y: 0 });
+    this.speed = new Vector2D({ x: 4, y: 0 });
     this.img.src = SpaceshipImg;
   }
 
